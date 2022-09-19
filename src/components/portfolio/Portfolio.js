@@ -1,18 +1,37 @@
-import React from 'react';
+import React from "react";
 import PortfolioBlock from "./PortfolioBlock";
-import {Box, Grid} from "@mui/material";
-import {info} from "../../info/Info";
+import { Box, Grid } from "@mui/material";
+import { info } from "../../info/Info";
+import axios from "axios";
 
-export default function Portfolio() {
+export default class Portfolio extends React.Component {
+  state = {
+    repos: [],
+  };
+ 
+  componentDidMount() {
+    console.log(info.githubUserName );
+    axios.get("https://api.github.com/users/"+ info.githubUserName+ "/repos").then((res) => {
+      const repos = res.data;
+      this.setState({ repos });
+    });
+  }
+
+  render() {
     return (
-        <Box>
-            <Grid container display={'flex'} justifyContent={'center'}>
-                {info.portfolio.map((project, index) => (
-                   <Grid item xs={12} md={6} key={index}>
-                       <PortfolioBlock image={project.image} live={project.live} source={project.source} title={project.title} />
-                   </Grid>
-                ))}
+      <Box>
+        <Grid container display={"flex"} justifyContent={"center"}>
+          {this.state.repos.map((item, index) => (
+            <Grid item xs={12} md={5} key={index}>
+              <PortfolioBlock
+                title={item["name"]}
+                language={item["language"]}
+                stargazers_count={item["stargazers_count"]}
+              />
             </Grid>
-        </Box>
+          ))}
+        </Grid>
+      </Box>
     );
-};
+  }
+}
