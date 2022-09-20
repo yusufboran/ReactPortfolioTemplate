@@ -1,9 +1,4 @@
 import self from "../img/self.png";
-import mock1 from "../img/mock1.png";
-import mock2 from "../img/mock2.png";
-import mock3 from "../img/mock3.png";
-import mock4 from "../img/mock4.png";
-import mock5 from "../img/mock5.png";
 
 export let colors = ["rgb(0,255,164)", "rgb(166,104,255)"];
 
@@ -14,19 +9,22 @@ export const info = {
   selfPortrait: self, // don't change this unless you want to name your self-portrait in the "img" folder something else!
   gradient: `-webkit-linear-gradient(135deg, ${colors})`, // don't change this either
   baseColor: colors[0],
-  githubUserName:"yusufboran",
+  githubUserName: "yusufboran",
   miniBio: [
     {
-      emoji: "🏠",
+      emoji: "🏘️",
       text: "Burdur",
+      link: "https://goo.gl/maps/VF87aioPdjUuyQSb7",
     },
     {
       emoji: "💼",
       text: "RabbiT",
+      link: "https://rabbit.com.tr/",
     },
     {
       emoji: "📧",
       text: "yusuf.boran@rbbt.com.tr",
+      link: "mailto:yusuf.boran@rbbt.com",
     },
   ],
   socials: [
@@ -83,42 +81,28 @@ export const info = {
       emoji: "👨‍🍳",
     },
     {
-        label: "borsa",
-        emoji: "📈",
-      },
-  
+      label: "borsa",
+      emoji: "📈",
+    },
   ],
-  portfolio: [
-    // This is where your portfolio projects will be detailed
+
+
+  links : [
     {
-      title: "Project 1",
-      live: "https://paytonpierce.dev", //this should be a link to the live version of your project, think github pages, netlify, heroku, etc. Or your own domain, if you have it.
-      source: "https://github.com/paytonjewell", // this should be a link to the **repository** of the project, where the code is hosted.
-      image: mock1,
+      name: "Home",
+      to: "/",
+      active: "home",
     },
     {
-      title: "Project 2",
-      live: "https://paytonpierce.dev",
-      source: "https://github.com/paytonjewell",
-      image: mock2,
+      name: "About Me",
+      to: "/about",
+      active: "about",
     },
+  
     {
-      title: "Project 3",
-      live: "https://paytonpierce.dev",
-      source: "https://github.com/paytonjewell",
-      image: mock3,
-    },
-    {
-      title: "Project 4",
-      live: "https://paytonpierce.dev",
-      source: "https://github.com/paytonjewell",
-      image: mock4,
-    },
-    {
-      title: "Project 5",
-      live: "https://paytonpierce.dev",
-      source: "https://github.com/paytonjewell",
-      image: mock5,
+      name: "Portfolio",
+      to: "/portfolio",
+      active: "portfolio",
     },
   ],
 };

@@ -10,9 +10,9 @@ export default class Portfolio extends React.Component {
   };
  
   componentDidMount() {
-    console.log(info.githubUserName );
     axios.get("https://api.github.com/users/"+ info.githubUserName+ "/repos").then((res) => {
       const repos = res.data;
+      console.log(repos)
       this.setState({ repos });
     });
   }
@@ -27,6 +27,7 @@ export default class Portfolio extends React.Component {
                 title={item["name"]}
                 language={item["language"]}
                 stargazers_count={item["stargazers_count"]}
+                url={item["svn_url"]}
               />
             </Grid>
           ))}
