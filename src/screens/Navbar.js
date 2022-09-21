@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import Style from "./Navbar.module.scss";
 import Toggler from "../components/Toggler";
+import LanguageSelector from "../components/LanguageSelector";
 import { Link, useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
 import { info } from "../assets/info/Info";
-import LanguageSelector from "../components/LanguageSelector";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar({ darkMode, handleClick }) {
+  const { t } = useTranslation();
   const location = useLocation();
   const [active, setActive] = useState(
     location.pathname === "/"
@@ -24,27 +26,40 @@ export default function Navbar({ darkMode, handleClick }) {
         textTransform={"lowercase"}
         fontSize={"1rem"}
       >
-        {info.links.map((link, index) => (
-          <Box
-            key={index}
-            component={"li"}
-            className={link.active === active && !link.type && Style.active}
-            sx={{ borderImageSource: info.gradient }}
-          >
-            <Link to={link.to} onClick={() => setActive(link.active)}>
-              {!link.type && (
-                <p style={{ paddingBottom: "0.5rem" }}>{link.name}</p>
-              )}
-              {link.type && <p>{link.name}</p>}
-            </Link>
-          </Box>
-        ))}
-        <Box  display={"flex"}  gap={{ xs: "1rem", md: "2rem" }}>
-          <Toggler darkMode={darkMode} handleClick={handleClick} />
-          <LanguageSelector
-          />
+        <Box
+          component={"li"}
+          className={"home" === active && Style.active}
+          sx={{ borderImageSource: info.gradient }}
+        >
+          <Link to={"/"} onClick={() => setActive("home")}>
+            <p style={{ paddingBottom: "0.5rem" }}> {t("home")}</p>
+          </Link>
         </Box>
-       
+
+        <Box
+          component={"li"}
+          className={"about" === active && Style.active}
+          sx={{ borderImageSource: info.gradient }}
+        >
+          <Link to={"/about"} onClick={() => setActive("about")}>
+            <p style={{ paddingBottom: "0.5rem" }}> {t("about")}</p>
+          </Link>
+        </Box>
+
+        <Box
+          component={"li"}
+          className={"portfolio" === active && Style.active}
+          sx={{ borderImageSource: info.gradient }}
+        >
+          <Link to={"/portfolio"} onClick={() => setActive("portfolio")}>
+            <p style={{ paddingBottom: "0.5rem" }}> {t("portfolio")}</p>
+          </Link>
+        </Box>
+
+        <Box display={"flex"} gap={{ xs: "1rem", md: "2rem" }}>
+          <Toggler darkMode={darkMode} handleClick={handleClick} />
+          <LanguageSelector />
+        </Box>
       </Box>
     </Box>
   );

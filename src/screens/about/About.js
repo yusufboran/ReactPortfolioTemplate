@@ -3,10 +3,11 @@ import Style from "./About.module.scss";
 import Terminal from "./Terminal";
 import { Box } from "@mui/material";
 import { info } from "../../assets/info/Info";
+import { useTranslation } from "react-i18next";
 
 export default function About() {
   const firstName = info.firstName.toLowerCase();
-
+  const { t } = useTranslation();
   function aboutMeText() {
     return (
       <>
@@ -21,7 +22,7 @@ export default function About() {
           <span style={{ color: info.baseColor }}>
             about{firstName} <span className={Style.green}>(main)</span> ${" "}
           </span>
-          {info.bio}
+          {t("bio")}
         </p>
       </>
     );
@@ -72,10 +73,7 @@ export default function About() {
         <ul>
           {info.hobbies.map((hobby, index) => (
             <li key={index}>
-              <Box component={"span"} mr={"1rem"}>
                 {hobby.emoji}
-              </Box>
-              {hobby.label}
             </li>
           ))}
         </ul>

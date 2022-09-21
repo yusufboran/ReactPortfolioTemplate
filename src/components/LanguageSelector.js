@@ -1,29 +1,40 @@
 import React from "react";
+import i18next from "i18next";
 import { Box } from "@mui/material";
 
-export default function LanguageSelector() {
-  let [language, setLanguage] = React.useState(false);
+const LanguageSelect = () => {
+  const transition = "all 250ms ease";
+  let [language, setDarkMode] = React.useState(false);
 
-  function handleClick() {
-    setLanguage(!language);
+  function languageChange() {
+    {
+      language ? i18next.changeLanguage("en") : i18next.changeLanguage("tr");
+    }
+    setDarkMode(!language);
   }
 
   return (
+
     <Box
-      fontSize={"1.5rem"}
-      sx={{
-        cursor: "pointer",
-        ":hover": {
-          transform: "translateY(-3px)",
-          transition: "all 250ms ease",
-        },
-      }}
-    >
+    sx={{
+      cursor: "pointer",
+      transform: "translateY(3px)",
+    }}
+  >
       {language ? (
-        <text onClick={handleClick}>tr</text>
+        <span onClick={languageChange} aria-label="Full Moon">
+          en
+        </span>
       ) : (
-        <text onClick={handleClick}>en</text>
+        <span onClick={languageChange} aria-label="New Moon">
+          tr
+        </span>
       )}
-    </Box>
+  </Box>
+   
+   
+    
   );
-}
+};
+
+export default LanguageSelect;

@@ -6,8 +6,10 @@ import EmojiBullet from "./EmojiBullet";
 import SocialIcon from "./SocialIcon";
 import { Box } from "@mui/material";
 import { info } from "../../assets/info/Info";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
+  const { t } = useTranslation();
   return (
     <Box
       component={"main"}
@@ -32,9 +34,10 @@ export default function Home() {
           mr={{ xs: 0, md: "2rem" }}
         />
       </Tilt>
+
       <Box>
         <h1>
-          Selam, Ben{" "}
+          {t("hi_i_am")}{" "}
           <span
             style={{
               background: info.gradient,
