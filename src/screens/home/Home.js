@@ -1,12 +1,11 @@
 import React from "react";
 import Tilt from "react-parallax-tilt";
 import Style from "./Home.module.scss";
-import me from "../../img/self.png";
 import classNames from "classnames";
 import EmojiBullet from "./EmojiBullet";
 import SocialIcon from "./SocialIcon";
 import { Box } from "@mui/material";
-import { info } from "../../info/Info";
+import { info } from "../../assets/info/Info";
 
 export default function Home() {
   return (
@@ -24,7 +23,7 @@ export default function Home() {
           alt={"image of developer"}
           style={{ background: info.gradient }}
           component={"img"}
-          src={me}
+          src={info.selfPortrait}
           width={{ xs: "35vh", md: "40vh" }}
           height={{ xs: "35vh", md: "40vh" }}
           borderRadius={"50%"}

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Style from "./Navbar.module.scss";
-import Toggler from "./home/Toggler";
+import Toggler from "../components/Toggler";
 import { Link, useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
-import { info } from "../info/Info";
+import { info } from "../assets/info/Info";
+import LanguageSelector from "../components/LanguageSelector";
 
 export default function Navbar({ darkMode, handleClick }) {
   const location = useLocation();
@@ -40,6 +41,8 @@ export default function Navbar({ darkMode, handleClick }) {
         ))}
         <Box  display={"flex"}  gap={{ xs: "1rem", md: "2rem" }}>
           <Toggler darkMode={darkMode} handleClick={handleClick} />
+          <LanguageSelector
+          />
         </Box>
        
       </Box>

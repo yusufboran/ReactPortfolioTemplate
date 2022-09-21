@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.module.scss';
-import BaseLayout from "./components/BaseLayout";
+import BaseLayout from "./screens/BaseLayout";
 import {BrowserRouter} from "react-router-dom";
 
 function App() {
