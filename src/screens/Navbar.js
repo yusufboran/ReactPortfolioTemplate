@@ -23,7 +23,7 @@ export default function Navbar({ darkMode, handleClick }) {
         justifyContent={"center"}
         alignItems={"center"}
         gap={{ xs: "2rem", md: "8rem" }}
-        textTransform={"lowercase"}
+        textTransform={"uppercase"}
         fontSize={"1rem"}
       >
         <Box

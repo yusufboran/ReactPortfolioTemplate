@@ -1,9 +1,11 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { AiOutlineStar } from "react-icons/ai";
+var GitHubColors = require("github-colors");
 
 function PortfolioBlock(props) {
   const { title, language, stargazers_count, url } = props;
+  const langCol = GitHubColors.get(language).color;
   return (
     <a href={url}>
       <Box
@@ -36,13 +38,34 @@ function PortfolioBlock(props) {
           </Box>
         </Box>
         <Box display={"flex"} flexDirection={"row"} color={"#8b949e"}>
-          <h1 style={{ fontSize: "12px" }}>{language}</h1>
-
-          <AiOutlineStar size={"14px"} />
+          <div
+            style={{
+              display: "flex",
+              width: "12px",
+              height: "12px",
+              backgroundColor: langCol,
+              borderRadius: "50%",
+            }}
+          />
+          <h1 style={{ fontSize: "12px", paddingLeft: 4, paddingRight: 4 }}>
+            {language}
+          </h1>
+          <Star stargazers_count={stargazers_count} />
         </Box>
       </Box>
     </a>
   );
+}
+
+function Star(props) {
+  if (props.stargazers_count > 0) {
+    return (
+      <Box display={"flex"} flexDirection={"row"}>
+        <AiOutlineStar size={"14px"} />
+        {props.stargazers_count}
+      </Box>  
+    );
+  } else return null;
 }
 
 export default PortfolioBlock;

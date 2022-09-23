@@ -12,7 +12,6 @@ export default class Portfolio extends React.Component {
   componentDidMount() {
     axios.get("https://api.github.com/users/"+ info.githubUserName+ "/repos").then((res) => {
       const repos = res.data;
-      console.log(repos)
       this.setState({ repos });
     });
   }
