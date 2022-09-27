@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Style from "./Navbar.module.scss";
-import Toggler from "../components/Toggler";
-import LanguageSelector from "../components/LanguageSelector";
+import Toggler from "../../components/Toggler";
+import LanguageSelector from "../../components/LanguageSelector";
 import { Link, useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
-import { info } from "../assets/info/Info";
+import { info } from "../../assets/info/Info";
 import { useTranslation } from "react-i18next";
 
 export default function Navbar({ darkMode, handleClick }) {
