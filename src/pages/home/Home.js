@@ -26,8 +26,8 @@ export default function Home() {
           style={{ background: info.gradient }}
           component={"img"}
           src={info.selfPortrait}
-          width={{ xs: "35vh", md: "40vh" }}
-          height={{ xs: "35vh", md: "40vh" }}
+          width={{ xs: "20vh", md: "40vh" }}
+          height={{ xs: "20vh", md: "40vh" }}
           borderRadius={"50%"}
           p={"0.75rem"}
           mb={{ xs: "1rem", sm: 0 }}
