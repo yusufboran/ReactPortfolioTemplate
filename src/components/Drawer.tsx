@@ -133,7 +133,7 @@ export default function PersistentDrawerLeft() {
             { name: "portfolio", icon: <SplitscreenIcon /> },
           ].map((item, index) => (
             <ListItem key={item} disablePadding>
-              <ListItemButton to={item.name == "home" ? "/" : "/" + item.name}>
+              <ListItemButton to={item.name === "home" ? "/" : "/" + item.name}>
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.name} />
               </ListItemButton>
