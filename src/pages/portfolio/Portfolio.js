@@ -23,7 +23,7 @@ export default function Portfolio() {
       ) : (
         <Box>
           <Grid container display={"flex"} justifyContent={"center"}>
-            {repos.map((item, index) => (
+            {  repos.map((item, index) => (
               <Grid item xs={12} md={5} key={index}>
                 <PortfolioBlock
                   title={item["name"]}

@@ -44,7 +44,7 @@ function PortfolioBlock(props) {
               width: "12px",
               height: "12px",
               borderRadius: "50%",
-              backgroundColor: langCol === undefined ? null : langCol.color,
+              backgroundColor: langCol,
             }}
           />
           <h1 style={{ fontSize: "12px", paddingLeft: 4, paddingRight: 4 }}>

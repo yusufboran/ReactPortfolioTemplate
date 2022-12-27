@@ -8,16 +8,28 @@ import { Box, Grid } from "@mui/material";
 import Style from "./App.module.scss";
 import { Hidden } from "@mui/material";
 import PersistentDrawerLeft from "./components/Drawer.tsx";
+import Snowfall from "react-snowfall";
+
+const month = new Date().getMonth() + 1;
 
 export default function App() {
-  let [darkMode, setDarkMode] = useState(false);
+  let [darkMode, setDarkMode] = useState(true);
 
   function handleClick() {
     setDarkMode(!darkMode);
   }
-
   return (
     <BrowserRouter>
+      {(darkMode && month < 3) || (darkMode && month == 12) ? (
+        <Snowfall
+          color={"#fff"}
+          snowflakeCount={200}
+          radius={[0.5, 3.0]}
+          speed={[0.5, 3.0]}
+          wind={[-0.5, 2.0]}
+        />
+      ) : null}
+
       <Box className={darkMode ? Style.dark : Style.light}>
         <Grid
           container
