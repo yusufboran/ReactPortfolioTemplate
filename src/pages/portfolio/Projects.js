@@ -26,9 +26,9 @@ const cards = [
   },
   {
     id: 1,
-    title: "deneme 1",
+    title: "admin React",
     imgUrl:
-      "https://raw.githubusercontent.com/yusufboran/dasboard-project/main/src/screenshots/home.jpg",
+      "https://raw.githubusercontent.com/yusufboran/dasboard-project/main/src/assets/img/projectImage/adminReact.png",
     context:
       "Ipsum aliqua Lorem sunt consectetur elit dolor esse id labore laborum enim laboris magna culpa.",
   },
