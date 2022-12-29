@@ -10,6 +10,8 @@ const cards = [
   {
     id: 1,
     title: "Vue Dasboard",
+
+    link: "https://dasboard-project.vercel.app/",
     imgUrl:
       "https://raw.githubusercontent.com/yusufboran/dasboard-project/main/src/screenshots/home.jpg",
     context:
@@ -18,6 +20,8 @@ const cards = [
   {
     id: 1,
     title: "Admin React",
+
+    link: "",
     imgUrl:
       "https://raw.githubusercontent.com/yusufboran/ReactPortfolioTemplate/master/src/assets/img/projectImage/adminReact.png",
     context:
@@ -26,8 +30,10 @@ const cards = [
   {
     id: 1,
     title: "MielProje",
+
+    link: "https://www.mielproje.com/#/",
     imgUrl:
-    "https://raw.githubusercontent.com/yusufboran/ReactPortfolioTemplate/master/src/assets/img/projectImage/Miel.png",
+      "https://raw.githubusercontent.com/yusufboran/ReactPortfolioTemplate/master/src/assets/img/projectImage/Miel.gif",
     context:
       "Laborum do eiusmod ut enim est.Nulla cillum mollit consectetur do non amet ullamco aute cupidatat adipisicing consequat.",
   },
@@ -49,7 +55,13 @@ export default function Projject() {
               <CardMedia component="img" image={card.imgUrl} alt="random" />
               <CardContent sx={{ flexGrow: 1 }}>
                 <Typography gutterBottom variant="h5" component="h2">
-                  {card.title}
+                  <a
+                    style={{ color: "black" }}
+                    href={card.link}
+                    target="_blank"
+                  >
+                    {card.title}
+                  </a>
                 </Typography>
                 <Typography>{card.context}</Typography>
               </CardContent>
