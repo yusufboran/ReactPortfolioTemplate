@@ -113,7 +113,6 @@ export default function PersistentDrawerLeft() {
             boxSizing: "border-box",
           },
         }}
-        variant="persistent"
         anchor="left"
         open={open}
       >
