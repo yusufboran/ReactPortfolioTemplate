@@ -19,9 +19,14 @@ export default function App() {
     setDarkMode(!darkMode);
   }
   return (
-    <BrowserRouter>
+    <>
       {(darkMode && month < 3) || (darkMode && month == 12) ? (
         <Snowfall
+          style={{
+            position: "fixed",
+            width: "100vw",
+            height: "100vh",
+          }}
           color={"#fff"}
           snowflakeCount={200}
           radius={[0.5, 3.0]}
@@ -29,33 +34,34 @@ export default function App() {
           wind={[-0.5, 2.0]}
         />
       ) : null}
-
-      <Box className={darkMode ? Style.dark : Style.light}>
-        <Grid
-          container
-          display={"flex"}
-          flexDirection={"column"}
-          minHeight={"100vh"}
-          justifyContent={"space-between"}
-        >
-          <Grid item>
-            <Hidden mdDown>
-              <Navbar darkMode={darkMode} handleClick={handleClick} />
-            </Hidden>
-            <Hidden xsDown mdUp>
-              <PersistentDrawerLeft />
-            </Hidden>
+      <BrowserRouter>
+        <Box className={darkMode ? Style.dark : Style.light}>
+          <Grid
+            container
+            display={"flex"}
+            flexDirection={"column"}
+            minHeight={"100vh"}
+            justifyContent={"space-between"}
+          >
+            <Grid item>
+              <Hidden mdDown>
+                <Navbar darkMode={darkMode} handleClick={handleClick} />
+              </Hidden>
+              <Hidden xsDown mdUp>
+                <PersistentDrawerLeft />
+              </Hidden>
+            </Grid>
+            <Grid item flexGrow={1}>
+              <Routes>
+                <Route exact index path={"/"} element={<Home />} />
+                <Route exact path={"/about"} element={<About />} />
+                <Route exact path={"/portfolio"} element={<Portfolio />} />
+                <Route path="*" element={<Navigate to="/" />} />
+              </Routes>
+            </Grid>
           </Grid>
-          <Grid item flexGrow={1}>
-            <Routes>
-              <Route exact index path={"/"} element={<Home />} />
-              <Route exact path={"/about"} element={<About />} />
-              <Route exact path={"/portfolio"} element={<Portfolio />} />
-              <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
-          </Grid>
-        </Grid>
-      </Box>
-    </BrowserRouter>
+        </Box>
+      </BrowserRouter>
+    </>
   );
 }
