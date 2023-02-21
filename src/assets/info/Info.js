@@ -1,4 +1,4 @@
-import self from "../../assets/img/self.png";
+import self from "../../assets/img/self.jpg"; 
 export let colors = ["rgb(0,255,164)", "rgb(166,104,255)"];
 
 export const info = {
@@ -18,7 +18,7 @@ export const info = {
     {
       emoji: "💼",
       text: "RabbiT",
-      link: "https://rabbit.com.tr/",
+      link: "https://rbbt.com.tr/",
     },
     {
       emoji: "📧",
